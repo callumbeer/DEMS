@@ -1,0 +1,19 @@
+======================
+   CONFIGURATION
+======================
+1. Import vms.sql file.
+2. Go to VMS->application->config->database.php and change values of hostname, username, password & database.
+3. If you are using ssl then go to VMS->application->config->config.php
+   Find the following line and replace http with https.
+
+   $root = "http://".$_SERVER['HTTP_HOST']; 
+
+
+After localhost or .com use admin
+
+======================
+   FOR LOGIN
+======================
+
+Admin user: admin@gmail.com
+Password: 123456
