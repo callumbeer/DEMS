@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 09, 2022 at 06:50 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 5.6.40
+-- Host: 127.0.0.1
+-- Generation Time: Mar 31, 2022 at 11:01 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -68,7 +67,7 @@ CREATE TABLE `user` (
   `password` text NOT NULL,
   `phone_number` int(11) NOT NULL,
   `account_type` varchar(255) NOT NULL DEFAULT 'normal',
-  `created_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_on` datetime NOT NULL DEFAULT current_timestamp(),
   `last_login` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
