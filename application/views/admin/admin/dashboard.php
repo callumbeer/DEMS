@@ -8,8 +8,7 @@
     <div class="page-content-wrap">
         
                         
-        
-        
+                
        
         <!-- START DASHBOARD CHART -->
 		<div class="chart-holder" id="dashboard-area-1" style="height: 200px;"></div>

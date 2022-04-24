@@ -14,7 +14,7 @@ class LoginModel extends CI_Model
                
                 if(md5($password) == $store_password)
                 {
-                    $this->session->set_userdata('id', $row->pass_number);
+                    $this->session->set_userdata('id', $row->badge_number);
                     $this->session->set_userdata('isAdmin', $row->account_type == "admin" ? true: false);
                     break;
                     return '';

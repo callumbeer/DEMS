@@ -2,7 +2,7 @@
 <html lang="en" class="body-full-height">
     <head>        
         <!-- META SECTION -->
-        <title>VMS</title>            
+        <title>DEMS | Evidence Management</title>            
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,9 +14,7 @@
         <!-- EOF CSS INCLUDE -->                                    
     </head>
     <body>
-        
         <div class="login-container">
-        
             <div class="login-box animated fadeInDown">
                 <div class="login-body">
                     <div class="login-title"><strong>Welcome</strong>, Please login</div>
@@ -46,6 +44,10 @@
                     <div class="pull-left">
                         &copy; <?php echo date('Y');?> DEMS
                     </div>
+					<br></br>
+					<div class="pull-left">
+						<strong>NOTICE</strong> - by using this website you agree to these terms. You are reminded that by making use of this site you are legally bound to follow the Data Protection Act 2018
+					</div>
                 </div>
             </div>
             

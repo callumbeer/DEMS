@@ -16,7 +16,7 @@
                     <!-- START CONTENT FRAME TOP -->
                     <div class="content-frame-top">                        
                         <div class="page-title">                    
-                            <h2><span class="fa fa-image"></span> Case Gallery</h2>
+                            <h2><span class="fa fa-image"></span> Case Materials</h2>
                         </div>                                                              
                     </div>
 
@@ -42,7 +42,7 @@
                         <?php $images_array = $this->DemsModel->getImages($case_id);
 
                               foreach($images_array as $key=>$item):?>
-                            <a class="gallery-item" href="<?php echo base_url().'assets/images/cases/'.$item['file_name'] ?>" title="Nature Image 1" data-gallery>
+                            <a class="gallery-item" href="<?php echo base_url().'assets/images/cases/'.$item['file_name'] ?>" title="Case Image" data-gallery>
                                 <div class="image">                              
                                     <img src="<?php echo base_url().'assets/images/cases/'.$item['file_name'] ?>" alt="<?=$item['file_name']?>"/>                                                                                                          
                                 </div>

@@ -56,7 +56,7 @@
                                                 <span class="fa fa-pencil"></span>
                                             </button>
                                         </a>
-                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('<?php echo $case_item['case_no']; ?>','cases/delete_case');"><span class="fa fa-times"></span></button>
+                                        <!--<button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('<?php echo $case_item['case_no']; ?>','cases/delete_case');"><span class="fa fa-times"></span></button>-->
                                     </td>
                                 </tr>
                                 <?php endforeach; } ?>

@@ -18,13 +18,13 @@
                             </div>
                             <div class="panel-body">                                            
                             <div class="form-group">
-                                    <label class="col-md-3 col-xs-12 control-label">Pass Number</label>
+                                    <label class="col-md-3 col-xs-12 control-label">Badge Number</label>
                                     <div class="col-md-6 col-xs-12">       
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="text" class="form-control" name="pass_number" />
+                                            <input type="text" class="form-control" name="badge_number" />
                                         </div> 
-                                        <span style="color: tomato !important;" class="help-block error"> <?php echo form_error('pass_number');  ?></span>                                           
+                                        <span style="color: tomato !important;" class="help-block error"> <?php echo form_error('badge_number');  ?></span>                                           
                                     </div>
                                 </div>
                                 <div class="form-group">

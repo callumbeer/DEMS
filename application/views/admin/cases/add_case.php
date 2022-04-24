@@ -66,7 +66,7 @@
                                     <div class="col-md-6 col-xs-12">     
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="text" required name="case_no" class="form-control" value="<?php echo set_value('case_no') ?>"/>
+                                            <input type="number" required name="case_no" class="form-control" value="<?php echo set_value('case_no') ?>"/>
                                         </div> 
                                         <span style="color: tomato !important;" class="help-block error"> <?php echo form_error('case_no'); ?></span>
                                     </div>
@@ -107,7 +107,7 @@
                                     <div class="col-md-6 col-xs-12">       
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="number" class="form-control" name="date_created" />
+                                            <input type="date" class="form-control" name="date_created" />
                                         </div>
                                         <span style="color: tomato !important;" class="help-block error"><?php echo form_error('date_created'); ?></span>                                            
                                     </div>

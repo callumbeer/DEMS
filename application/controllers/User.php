@@ -16,7 +16,7 @@ class User extends CI_Controller {
 		{	
 			$this->form_validation->set_rules('first_name', 'First Name', 'required');
 			$this->form_validation->set_rules('surname', 'Surname', 'required');
-			$this->form_validation->set_rules('pass_number', 'Pass Number', 'required|trim');
+			$this->form_validation->set_rules('badge_number', 'Badge Number', 'required|trim');
 			$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
 			$this->form_validation->set_rules('phone', 'Phone', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]');
@@ -28,7 +28,7 @@ class User extends CI_Controller {
 			{
 				$data['first_name'] =	$this->input->post('first_name');
 				$data['surname']	=	$this->input->post('surname');
-				$data['pass_number']=	$this->input->post('pass_number');
+				$data['badge_number']=	$this->input->post('badge_number');
 				$data['email']	 	=	$this->input->post('email');
 				$data['phone_number']	=	$this->input->post('phone');
 				$data['password']	=	md5($this->input->post('password'));
@@ -53,7 +53,7 @@ class User extends CI_Controller {
 				
 				$this->form_validation->set_rules('first_name', 'First Name', 'required');
 				$this->form_validation->set_rules('surname', 'Surname', 'required');
-				$this->form_validation->set_rules('pass_number', 'Pass Number', 'required');
+				$this->form_validation->set_rules('badge_number', 'Badge Number', 'required');
 				$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
 				$this->form_validation->set_rules('phone_number', 'Phone', 'required');
 				$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]');
@@ -69,7 +69,7 @@ class User extends CI_Controller {
 				{	
 					$data['first_name'] =	$this->input->post('first_name');
 					$data['surname']	=	$this->input->post('surname');
-					$data['pass_number']=	$this->input->post('pass_number');
+					$data['badge_number']=	$this->input->post('badge_number');
 					$data['email']	 	=	$this->input->post('email');
 					$data['phone_number']	=	$this->input->post('phone_number');
 					$data['password']	=	md5($this->input->post('password'));
@@ -119,7 +119,7 @@ class User extends CI_Controller {
 			}
 			$id = $this->input->post('id');
 			if(null !=($id)){
-				$this->db->where('pass_number', $id);
+				$this->db->where('badge_number', $id);
 				$this->db->delete('user');
 				echo "1";
 				
@@ -134,7 +134,7 @@ class User extends CI_Controller {
 		if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$this->form_validation->set_rules('first_name', 'First Name', 'required');
 				$this->form_validation->set_rules('surname', 'Surname', 'required');
-				//$this->form_validation->set_rules('pass_number', 'Pass Number', 'required');
+				//$this->form_validation->set_rules('badge_number', 'Badge Number', 'required');
 				$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 				$this->form_validation->set_rules('phone_number', 'Phone', 'required');
 				$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]');
@@ -149,13 +149,13 @@ class User extends CI_Controller {
                 {
 					$data['first_name'] =	$this->input->post('first_name');
 					$data['surname']	=	$this->input->post('surname');
-					//$data['pass_number']=	$this->input->post('pass_number');
+					//$data['badge_number']=	$this->input->post('badge_number');
 					$data['email']	 	=	$this->input->post('email');
 					$data['phone_number']	=	$this->input->post('phone_number');
 					$data['account_type']	=	$this->input->post('account_type');
 					$data['password']	=	md5($this->input->post('password'));
 
-					$this->db->where('pass_number',$id);
+					$this->db->where('badge_number',$id);
 					$this->db->update('user',$data);
 					$this->session->set_flashdata('success', 'User profile has been updated successfully!');
 					redirect(base_url().'user/view_user');

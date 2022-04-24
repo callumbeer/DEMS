@@ -88,6 +88,7 @@ class Cases extends CI_Controller {
 						$img_data['case_no'] = $case_id;
 						$img_data['file_type'] = 'image';
 						$this->db->insert('file',$img_data);
+						$data['file_hash']	=	md5($this->input->post('file_hash'));
 					endforeach;
 				}
 				// prject images End////////////

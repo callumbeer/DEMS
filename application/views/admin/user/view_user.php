@@ -26,7 +26,7 @@
                                             <thead>
                                                 <tr>
                                                 <th width="100">First Name</th>
-                                                    <th>Pass Number</th>
+                                                    <th>Badge Number</th>
                                                     <th>Surname</th>
                                                     <th>Email</th>
                                                     <th>Phone</th>
@@ -38,16 +38,16 @@
                                                 <?php $i=1;
 												 $user_info = $this->usersModel->get_users();
                                             foreach ($user_info as $item) { ?>                                      
-                                                <tr id="<?php echo $item['pass_number']; ?>">
+                                                <tr id="<?php echo $item['badge_number']; ?>">
                                                     <td class="text-center"><?php echo $item['first_name'] ?></td>
-                                                    <td class="text-center"><?php echo $item['pass_number'] ?></td>
+                                                    <td class="text-center"><?php echo $item['badge_number'] ?></td>
                                                     <td class="text-center"><?php echo $item['surname'] ?></td>
                                                     <td class="text-center"><?php echo $item['email'] ?></td>
                                                     <td class="text-center"><?php echo $item['phone_number'] ?></td>
                                                     <td class="text-center"><?php echo $item['account_type'] == 'normal' ? 'Normal': 'Admin' ?></td>
                                                     <td>
-                                                        <a href="<?php echo base_url() ?>user/edit_user/<?php echo $item['pass_number'] ?>"><button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button></a>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('<?php echo $item['pass_number']; ?>','user/delete_user');"><span class="fa fa-times"></span></button>
+                                                        <a href="<?php echo base_url() ?>user/edit_user/<?php echo $item['badge_number'] ?>"><button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button></a>
+                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('<?php echo $item['badge_number']; ?>','user/delete_user');"><span class="fa fa-times"></span></button>
                                                     </td>
                                                 </tr>
                                                 <?php } ?>
