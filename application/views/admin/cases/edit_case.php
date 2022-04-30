@@ -206,9 +206,9 @@
                                                 </div>
                                                 <div>
                                                     <span class="btn btn-primary btn-sm btn-file">
-                                                        <span class="fileinput-new">Select image</span>
+                                                        <span class="fileinput-new">Select file</span>
                                                         <span class="fileinput-exists">Change</span>
-                                                        <input type="file" name="case_image[]" accept="image/*">
+                                                        <input type="file" name="case_image[]" accept="*">
                                                     </span>
                                                     <input name="case_image_hidden_input[]" type="hidden" value="<?php echo $item['file_name'] ?>" />
                                                     <a href="#" onclick="$(this).parent().parent().parent().remove()" class="btn btn-warning btn-sm fileinput-exists" >Remove</a>

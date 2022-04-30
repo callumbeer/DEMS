@@ -25,20 +25,20 @@
                             
                             <div class="panel-body">
                             <div class="form-group">
-                                    <label class="col-md-3 col-xs-12 control-label">Pass Number</label>
+                                    <label class="col-md-3 col-xs-12 control-label">Badge Number</label>
                                     <div class="col-md-6 col-xs-12">       
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="text" class="form-control" name="pass_number" value="<?php if(!empty(set_value('pass_number')))
+                                            <input type="text" class="form-control" name="badge_number" value="<?php if(!empty(set_value('badge_number')))
                                                 {
-                                                echo set_value('pass_number');
+                                                echo set_value('badge_number');
                                                 }
                                                 else{
-                                                echo $user_info->pass_number;  
+                                                echo $user_info->badge_number;  
                                                 }
                                                 ?>" disabled />
                                         </div> 
-                                        <span style="color: tomato !important;" class="help-block error"> <?php echo form_error('pass_number');  ?></span>                                           
+                                        <span style="color: tomato !important;" class="help-block error"> <?php echo form_error('badge_number');  ?></span>                                           
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -132,6 +132,7 @@
                                         <select class="form-control select" name="account_type">
                                             <option value="normal" <?php if($user_info->account_type == "normal") echo "selected=''";?>>Normal</option>
                                             <option value="admin" <?php if($user_info->account_type == "admin") echo "selected=''";?>>Admin</option>
+											
                                         </select>
                                     </div>
                                 </div>

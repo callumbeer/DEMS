@@ -2,7 +2,7 @@
 <html lang="en" class="body-full-height">
     <head>        
         <!-- META SECTION -->
-        <title>VMS</title>            
+        <title>DEMS | Evidence Management</title>            
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,8 +36,8 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="text" class="form-control" name="pass_number" placeholder="Pass Number"/>
-                            <span style="color: tomato !important;" class="help-block error"> <?php echo form_error('pass_number');  ?></span>
+                            <input type="text" class="form-control" name="badge_number" placeholder="Badge Number"/>
+                            <span style="color: tomato !important;" class="help-block error"> <?php echo form_error('badge_number');  ?></span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -70,7 +70,7 @@
                 </div>
                 <div class="login-footer">
                     <div class="pull-left">
-                        &copy; <?php echo date('Y');?> VMS
+                        &copy; <?php echo date('Y');?> DEMS
                     </div>
                 </div>
             </div>
