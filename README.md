@@ -1,10 +1,15 @@
 # Digital Evidence Management System (DEMS)
-This repository contains the files associated with the paper "DEMS to Manage the Chain of Custody in Policing" by Callum L Beer.
+This repository contains the files associated with the paper *"DEMS to Manage the Chain of Custody in Policing"* by Callum L Beer.
 
 Default admin credentials:
 | Email           | Password      |
 | -------------   |:-------------:| 
 | admin@gmail.com | 123456        |
+
+## Requirements
+- XAMPP 7.4.29 / PHP 7.4.29
+
+- CodeIgniter 4.1.9
 
 Use of the CodeIgniter framework is licensed under the MIT License. The CodeIgniter Repository can be found [here](https://github.com/bcit-ci/CodeIgniter).
 
