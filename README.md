@@ -8,6 +8,8 @@ Default admin credentials:
 | -------------   |:-------------:| 
 | admin@gmail.com | 123456        |
 
+Further accounts can be registered and assigned permissions through the admin account.
+
 ## Requirements
 - XAMPP 7.4.29 / PHP 7.4.29
 
