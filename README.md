@@ -1,5 +1,7 @@
 # Digital Evidence Management System (DEMS)
-This repository contains the files associated with the paper *"DEMS to Manage the Chain of Custody in Policing"* by Callum L Beer.
+This repository contains the files associated with the paper *"DEMS to Manage the Chain of Custody in Policing"* by Callum L Beer from the University of Brighton, UK.
+
+A Digital Evidence Management System (DEMS) is used for storing evidence which is collected from crime scene, via on scene acquisition.
 
 Default admin credentials:
 | Email           | Password      |
