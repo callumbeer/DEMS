@@ -6,7 +6,7 @@ Default admin credentials:
 | -------------   |:-------------:| 
 | admin@gmail.com | 123456        |
 
-Use of the CodeIgniter framework is licensed under the MIT License.
+Use of the CodeIgniter framework is licensed under the MIT License. The CodeIgniter Repository can be found [here](https://github.com/bcit-ci/CodeIgniter).
 
 ## The MIT License (MIT)
 
