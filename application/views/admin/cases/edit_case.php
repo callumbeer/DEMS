@@ -128,14 +128,14 @@
                                     <div class="col-md-6 col-xs-12">       
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="number" class="form-control" name="date_created" value="<?php if(null !=(set_value('date_created')))
+                                            <input type="text" class="form-control" name="date_created" value="<?php if(null !=(set_value('date_created')))
                                               {
                                                 echo set_value('date_created');
                                               }
                                               else{
                                                 echo $case_info->date_created;  
                                               }
-                                              ?>"/>
+                                              ?>"disabled/>
                                         </div>
                                         <span style="color: tomato !important;" class="help-block error"><?php echo form_error('date_created'); ?></span>                                            
                                     </div>

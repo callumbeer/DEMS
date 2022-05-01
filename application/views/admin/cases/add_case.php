@@ -102,16 +102,6 @@
                                         <span style="color: tomato !important;" class="help-block error"> <?php echo form_error('case_type'); ?></span>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 col-xs-12 control-label">Date Created</label>
-                                    <div class="col-md-6 col-xs-12">       
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="date" class="form-control" name="date_created" />
-                                        </div>
-                                        <span style="color: tomato !important;" class="help-block error"><?php echo form_error('date_created'); ?></span>                                            
-                                    </div>
-                                </div>
                             </div> 
                             <div class="tab-pane" id="tab_2">
                                 <div class="form-group">

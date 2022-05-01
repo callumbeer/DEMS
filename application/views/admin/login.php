@@ -46,7 +46,8 @@
                     </div>
 					<br></br>
 					<div class="pull-left">
-						<strong>NOTICE</strong> - by using this website you agree to these terms. You are reminded that by making use of this site you are legally bound to follow the Data Protection Act 2018
+						<strong>NOTICE</strong> - by using this website you agree to these terms. You are reminded that by making use of this site you are legally bound to follow the Data Protection Act 2018.
+												Using shared credentials violates the Computer Misuse Act 1990, any such action may result in prosecution and revokation of permissions.  
 					</div>
                 </div>
             </div>
