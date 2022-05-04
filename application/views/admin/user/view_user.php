@@ -25,8 +25,9 @@
                                         <table class="table table-bordered table-striped table-actions">
                                             <thead>
                                                 <tr>
+                                                     <th>S.no.</th>
                                                 <th width="100">First Name</th>
-                                                    <th>Badge Number</th>
+                                                   <!--  <th>Badge Number</th> -->
                                                     <th>Surname</th>
                                                     <th>Email</th>
                                                     <th>Phone</th>
@@ -35,22 +36,24 @@
                                                 </tr>
                                             </thead>
                                             <tbody> 
-                                                <?php $i=1;
+                                                <?php
 												 $user_info = $this->usersModel->get_users();
+                                                  $i=1;
                                             foreach ($user_info as $item) { ?>                                      
-                                                <tr id="<?php echo $item['badge_number']; ?>">
+                                                <tr>
+                                                     <td class="text-center"><?php echo $i ?></td>
                                                     <td class="text-center"><?php echo $item['first_name'] ?></td>
-                                                    <td class="text-center"><?php echo $item['badge_number'] ?></td>
+                                                   <!--  <td class="text-center"><?php echo $item['badge_number'] ?></td> -->
                                                     <td class="text-center"><?php echo $item['surname'] ?></td>
                                                     <td class="text-center"><?php echo $item['email'] ?></td>
                                                     <td class="text-center"><?php echo $item['phone_number'] ?></td>
                                                     <td class="text-center"><?php echo $item['account_type'] == 'normal' ? 'Normal': 'Admin' ?></td>
                                                     <td>
-                                                        <a href="<?php echo base_url() ?>user/edit_user/<?php echo $item['badge_number'] ?>"><button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button></a>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('<?php echo $item['badge_number']; ?>','user/delete_user');"><span class="fa fa-times"></span></button>
+                                                        <a href="<?php echo base_url() ?>user/edit_user/<?php echo $item['id'] ?>"><button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button></a>
+                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('<?php echo $item['id']; ?>','user/delete_user')"><span class="fa fa-times"></span></button>
                                                     </td>
                                                 </tr>
-                                                <?php } ?>
+                                                <?php  $i++; } ?>
                                             </tbody>
                                         </table>
                                     </div>                                

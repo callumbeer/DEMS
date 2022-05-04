@@ -80,7 +80,7 @@
                                 <div class="form-group">
                                     <label class="col-md-3 col-xs-12 control-label">Account Type</label>
                                     <div class="col-md-6 col-xs-12">                                
-                                        <select class="form-control select" name="level">
+                                        <select class="form-control select" name="account_type">
                                             <option value="normal">Normal</option>
                                             <option value="admin">Admin</option>
                                         </select>

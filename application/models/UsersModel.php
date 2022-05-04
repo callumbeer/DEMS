@@ -22,7 +22,7 @@ class UsersModel extends CI_Model
 	
    public function user_info_by_id($id)
    {
-      $this->db->where('badge_number',$id);
+      $this->db->where('id',$id);
       $data = $this->db->get('user')->row();
       return $data;
    }

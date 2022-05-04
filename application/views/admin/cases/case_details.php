@@ -5,7 +5,7 @@
 </ul>
 <!-- END BREADCRUMB -->
 
-<?php $case_info = $this->DemsModel->get_info_by_id(null,'case','case_no',$case_id,null,null,null,null);                                          
+<?php $case_info = $this->DemsModel->get_info_by_id(null,'case','case_no',$case_id,null,null,null,null);                                        
             if(null == ($case_info)){
                 show_404();
             } ?>
@@ -34,9 +34,9 @@
                         <p><?=$case_info->description?></p>
                     </div>
                     <!-- END CONTENT FRAME RIGHT -->
-                    
+                    <button class="btn btn-primary pull-right" type="button" onclick="hash('hashshow')">Show hash</button>
                     <!-- START CONTENT FRAME BODY -->
-                    <div class="content-frame-body content-frame-body-left">
+                    <div class="content-frame-body content-frame-body-left" >
                         
                         <div class="gallery" id="links">
                         <?php $images_array = $this->DemsModel->getImages($case_id);
@@ -44,27 +44,48 @@
                               foreach($images_array as $key=>$item):?>
                             <a class="gallery-item" href="<?php echo base_url().'assets/images/cases/'.$item['file_name'] ?>" title="Case Image" data-gallery>
                                 <div class="image">                              
-                                    <img src="<?php echo base_url().'assets/images/cases/'.$item['file_name'] ?>" alt="<?=$item['file_name']?>"/>                                                                                                          
+                                    <img src="<?php echo base_url().'assets/images/cases/'.$item['file_name'] ?>" alt="<?=$item['file_name']?>"/>                                                   
                                 </div>
                                 <div class="meta">
                                     <strong><?=$item['file_name']?>"</strong>
                                     <!-- <span>Description</span> -->
-                                </div>                                
+                                </div>
+                                <div class="hashshow" style="display: none;">
+                                    HASH :  
+                            <input class="form-control" type="text" value="<?php  echo hash_file('md5', base_url().'assets/images/cases/'.$item['file_name'] );  ?>" id="myInput1">
+
+                            <!-- The button used to copy the text -->
+                            <button class="btn btn-primary" onclick="imgcopy()">Copy Code</button>     
+                                </div>                           
                             </a>                           
                              <?php endforeach; ?>
                         </div>
 
                         <div>
                         <?php $case_info = $this->DemsModel->getVideo($case_id);                                        
-                            if(null == ($case_info)){
-                                show_404();
-                            } ?>
-                        <video width="900" height="600" controls>
+                            // if(null == ($case_info)){
+                            //     //show_404();
+                            // } 
+                            if(!empty($case_info))
+                            {
+                                   ?>
+                        <video width="800" height="300" controls>
                             <source src="<?php echo base_url().'assets/videos/'.$case_info->file_name?>" type="video/mp4">
                             Your browser does not support the video tag.
-                        </video>
+                        
+                        </video> 
+                        <div class="hashshow" style="display: none;">
+                          HASH : 
+                            <!-- The text field -->
+                            <input class="form-control" type="text" value="<?php  echo hash_file('md5', base_url().'assets/videos/'.$case_info->file_name); ?>" id="myInput">
+
+                            <!-- The button used to copy the text -->
+                            <button class="btn btn-primary" onclick="videocopy()">Copy Code</button> 
+                        </div> 
+                           <?php } ?>
+                     
                         </div>  
-                             
+                           
                         <!-- <ul class="pagination pagination-sm pull-right push-down-20 push-up-20">
                             <li class="disabled"><a href="#">«</a></li>
                             <li class="active"><a href="#">1</a></li>
@@ -87,5 +108,46 @@
             <a class="close">×</a>
             <a class="play-pause"></a>
             <ol class="indicator"></ol>
-        </div>      
+        </div> 
+        <br>     
         <!-- END BLUEIMP GALLERY -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+  <script type="text/javascript">
+         function hash(ele) {
+            $('.hashshow').show();
+         }
+
+          // var clipboard = new ClipboardJS('.copy');
+          // var clipboard = new ClipboardJS('.copyimg');
+
+    
+        function videocopy() {
+          /* Get the text field */
+          var copyText = document.getElementById("myInput");
+
+          /* Select the text field */
+          copyText.select();
+          copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+           /* Copy the text inside the text field */
+          navigator.clipboard.writeText(copyText.value);
+
+          /* Alert the copied text */
+          alert("Copied the code: " + copyText.value);
+        }
+
+          function imgcopy() {
+          /* Get the text field */
+          var copyText = document.getElementById("myInput1");
+
+          /* Select the text field */
+          copyText.select();
+          copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+           /* Copy the text inside the text field */
+          navigator.clipboard.writeText(copyText.value);
+
+          /* Alert the copied text */
+          alert("Copied the code: " + copyText.value);
+        }
+      </script>

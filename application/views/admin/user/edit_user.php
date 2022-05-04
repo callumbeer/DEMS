@@ -29,16 +29,16 @@
                                     <div class="col-md-6 col-xs-12">       
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="text" class="form-control" name="badge_number" value="<?php if(!empty(set_value('badge_number')))
+                                            <input type="text" class="form-control" name="id" value="<?php if(!empty(set_value('id')))
                                                 {
-                                                echo set_value('badge_number');
+                                                echo set_value('id');
                                                 }
                                                 else{
-                                                echo $user_info->badge_number;  
+                                                echo $user_info->id;  
                                                 }
                                                 ?>" disabled />
                                         </div> 
-                                        <span style="color: tomato !important;" class="help-block error"> <?php echo form_error('badge_number');  ?></span>                                           
+                                        <span style="color: tomato !important;" class="help-block error"> <?php echo form_error('id');  ?></span>                                           
                                     </div>
                                 </div>
                                 <div class="form-group">
