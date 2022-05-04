@@ -27,31 +27,34 @@ class Login extends CI_Controller {
 						redirect(base_url().'admin');
 					}
 					$this->load->library('form_validation');
-					$this->load->model('loginmodel');
+					$this->load->model('LoginModel');
         }
       
 		public function index()
 		{
 			$this->form_validation->set_rules('email','Email','required|valid_email');
-			$this->form_validation->set_rules('password', 'Password', 'trim|min_length[6]');
-			
-				if( ! $this->form_validation->run())
+			$this->form_validation->set_rules('password', 'Password', 'required');
+
+				// if( ! $this->form_validation->run())
+			   if($this->form_validation->run() === FALSE)
 			    {
+
 			       $this->load->view('admin/login');
 			    }
 			    else
 			    {
+			    	
 			        $email = 	  $this->input->post('email');
 					$password =   $this->input->post('password');
-					$result = $this->loginmodel->can_login($email, $password);
+					
+					$result = $this->LoginModel->can_login($email, $password);
 					if($result == '')
 					{
-						
 						redirect(base_url().'admin');
 					}
-					else	
+					else{	
 				    	$this->load->view('admin/login');
-					
+					}
 			   
 				}
 		}

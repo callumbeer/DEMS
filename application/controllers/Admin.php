@@ -16,6 +16,16 @@ class Admin extends CI_Controller {
         }
 		public function index()
 		{	
+			$data['isSearch'] = FALSE;
+			$searchParams = $this->input->get('search', TRUE);
+			if(!empty($searchParams))
+			{
+				$data['isSearch'] = TRUE;
+				if ($query = $this->DemsModel->case_search($searchParams))
+				{
+					$data['searches'] = $query;
+				}
+			}
 			$data['breadcrumb_name'] = 'Dashboard';
 		   	$data['page_name'] = 'dashboard';					
 		   	$this->load->view('admin/index',$data);

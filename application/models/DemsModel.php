@@ -22,7 +22,7 @@ class DemsModel extends CI_Model {
           return $result->row();
       } 
     
-        public function get_records($select = null ,$table,$limit=null,$sortby_col=null, $asc_or_desc = null, $isvisible=null, $isvisible_value=null,$isdeleted=null,$isdeleted_value=null) {
+        public function get_records($select = null ,$table = null,$limit=null,$sortby_col=null, $asc_or_desc = null, $isvisible=null, $isvisible_value=null,$isdeleted=null,$isdeleted_value=null) {
 	        if($select != null)
         	$this->db->select($select);
 	        if($isvisible != null && $isvisible_value !=null)
@@ -37,7 +37,7 @@ class DemsModel extends CI_Model {
         	return $result->result_array();
     	}
 
-	    public function get_multiple_rows_byCol($select = null ,$table,$col,$val,$limit=null,$sortby_col=null, $asc_or_desc = null, $isvisible=null, $isvisible_value=null,$isdeleted=null,$isdeleted_value=null) {
+	    public function get_multiple_rows_byCol($select = null ,$table = null,$colt=null,$valt=null,$limit=null,$sortby_col=null, $asc_or_desc = null, $isvisible=null, $isvisible_value=null,$isdeleted=null,$isdeleted_value=null) {
 	        if($select != null)
         	$this->db->select($select);
 	        $this->db->where($col, $val);
@@ -53,7 +53,7 @@ class DemsModel extends CI_Model {
 	        return $result->result_array();
 	    } 
 
-        public function get_info_by_id($select = null ,$table,$col,$val,$isvisible=null,$isvisible_value=null,$isdeleted=null,$isdeleted_value=null){
+        public function get_info_by_id($select = null ,$table=null,$col= null,$val= null,$isvisible=null,$isvisible_value=null,$isdeleted=null,$isdeleted_value=null){
         if($select != null)
         	$this->db->select($select);
         $this->db->where($col,$val);
@@ -74,7 +74,7 @@ class DemsModel extends CI_Model {
         
         }
 
-        public function get_info_array_by_id($table,$col,$val,$isvisible=null,$isvisible_value=null,$isdeleted=null,$isdeleted_value=null){
+        public function get_info_array_by_id($table= null,$col= null,$val= null,$isvisible=null,$isvisible_value=null,$isdeleted=null,$isdeleted_value=null){
     
           $this->db->where($col,$val);
           if($isvisible != null && $isvisible_value !=null)

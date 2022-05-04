@@ -26,13 +26,16 @@ class User extends CI_Controller {
 			}
 			else
 			{
+				
 				$data['first_name'] =	$this->input->post('first_name');
 				$data['surname']	=	$this->input->post('surname');
-				$data['badge_number']=	$this->input->post('badge_number');
+			    // $data['badge_number']=	$this->input->post('badge_number');
 				$data['email']	 	=	$this->input->post('email');
 				$data['phone_number']	=	$this->input->post('phone');
-				$data['password']	=	md5($this->input->post('password'));
-
+				//$data['password']	=	md5($this->input->post('password'));
+                $data['password']	= hash('sha256',$this->input->post('password'));
+               
+               
 				$id = $this->usersModel->insertUser($data);
 				
 				redirect(base_url().'login/');
@@ -69,11 +72,12 @@ class User extends CI_Controller {
 				{	
 					$data['first_name'] =	$this->input->post('first_name');
 					$data['surname']	=	$this->input->post('surname');
-					$data['badge_number']=	$this->input->post('badge_number');
+					// $data['badge_number']=	$this->input->post('badge_number');
 					$data['email']	 	=	$this->input->post('email');
 					$data['phone_number']	=	$this->input->post('phone_number');
-					$data['password']	=	md5($this->input->post('password'));
-					$data['account_type']	=	md5($this->input->post('account_type'));
+					// $data['password']	=	md5($this->input->post('password'));
+					$data['password']	= hash('sha256',$this->input->post('password'));
+					$data['account_type']	=	$this->input->post('account_type');
 
 					$this->usersModel->insertUser($data);
 					$data['breadcrumb_name'] = 'User List';
@@ -112,18 +116,22 @@ class User extends CI_Controller {
 
 		}
 
-		public function delete_user(){
-			if(!$this->session->userdata('id') || $this->session->userdata('isAdmin') != true)
-			{
-				redirect(base_url().'login/');
-			}
-			$id = $this->input->post('id');
-			if(null !=($id)){
-				$this->db->where('badge_number', $id);
-				$this->db->delete('user');
-				echo "1";
+		public function delete_user($id){
+			
+			// if(!$this->session->userdata('id') || $this->session->userdata('isAdmin') != true)
+			// {
+			// 	redirect(base_url().'login/');
+			// }
+			// $id = $this->input->post('id');
+	
+			// if(null !=($id)){
+				// $this->db->where('id', $id);
+				// $this->db->delete('user');
+				// echo "1";
+			 $this->db->delete('user', array('id' => $id));
+             echo 'Deleted successfully.';
 				
-			}
+			
 		}
 		
 		public function update_user($id){
@@ -153,9 +161,9 @@ class User extends CI_Controller {
 					$data['email']	 	=	$this->input->post('email');
 					$data['phone_number']	=	$this->input->post('phone_number');
 					$data['account_type']	=	$this->input->post('account_type');
-					$data['password']	=	md5($this->input->post('password'));
+					$data['password']	=	hash('sha256',$this->input->post('password'));
 
-					$this->db->where('badge_number',$id);
+					$this->db->where('id',$id);
 					$this->db->update('user',$data);
 					$this->session->set_flashdata('success', 'User profile has been updated successfully!');
 					redirect(base_url().'user/view_user');

@@ -66,7 +66,13 @@
                                     <div class="col-md-6 col-xs-12">     
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="number" required name="case_no" class="form-control" value="<?php echo set_value('case_no') ?>"/>
+                                          <!--   <input type="number" name="case_no" class="form-control" value="<?php echo set_value('case_no') ?>"/> -->
+                                             <input type="number" name="case_no" class="form-control" value="<?php
+
+                                                $maxid = $this->db->query('SELECT MAX(case_no) AS `maxid` FROM `case`')->row()->maxid;
+                                                 echo $maxid+1;
+
+                                              ?>"/>
                                         </div> 
                                         <span style="color: tomato !important;" class="help-block error"> <?php echo form_error('case_no'); ?></span>
                                     </div>
@@ -100,6 +106,16 @@
                                             <option value="Murder">Murder</option>
                                         </select>
                                         <span style="color: tomato !important;" class="help-block error"> <?php echo form_error('case_type'); ?></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 col-xs-12 control-label">Date Created</label>
+                                    <div class="col-md-6 col-xs-12">       
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                            <input type="date" class="form-control" name="date_created" />
+                                        </div>
+                                        <span style="color: tomato !important;" class="help-block error"><?php echo form_error('date_created'); ?></span>                                            
                                     </div>
                                 </div>
                             </div> 

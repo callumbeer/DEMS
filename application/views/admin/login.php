@@ -23,11 +23,13 @@
                     <div class="form-group">
                         <div class="col-md-12">
                             <input type="email" class="form-control" name="email" placeholder="Username"/>
+                            <span style="color: tomato !important;" class="help-block error"> <?php echo form_error('email');  ?></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
                             <input type="password" class="form-control" name="password" placeholder="Password"/>
+                            <span style="color: tomato !important;" class="help-block error"> <?php echo form_error('password');  ?></span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -46,8 +48,7 @@
                     </div>
 					<br></br>
 					<div class="pull-left">
-						<strong>NOTICE</strong> - by using this website you agree to these terms. You are reminded that by making use of this site you are legally bound to follow the Data Protection Act 2018.
-												Using shared credentials violates the Computer Misuse Act 1990, any such action may result in prosecution and revokation of permissions.  
+						<strong>NOTICE</strong> - by using this website you agree to these terms. You are reminded that by making use of this site you are legally bound to follow the Data Protection Act 2018
 					</div>
                 </div>
             </div>

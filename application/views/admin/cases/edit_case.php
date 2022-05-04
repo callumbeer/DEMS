@@ -43,6 +43,7 @@
                 show_404();
             }
         ?>
+
             <form class="form-horizontal" action="<?php echo site_url();?>cases/updatecase/<?php echo $case_id ?>" method="post" id="case_form" enctype="multipart/form-data" >
                 <div class="panel panel-default ">
                     <div class="panel-heading">
@@ -128,14 +129,14 @@
                                     <div class="col-md-6 col-xs-12">       
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input type="text" class="form-control" name="date_created" value="<?php if(null !=(set_value('date_created')))
+                                            <input type="date" class="form-control" name="date_created" value="<?php if(null !=(set_value('date_created')))
                                               {
                                                 echo set_value('date_created');
                                               }
                                               else{
                                                 echo $case_info->date_created;  
                                               }
-                                              ?>"disabled/>
+                                              ?>"/>
                                         </div>
                                         <span style="color: tomato !important;" class="help-block error"><?php echo form_error('date_created'); ?></span>                                            
                                     </div>
@@ -175,7 +176,11 @@
                                                 <?php $images_array = $this->DemsModel->getImages($case_id); ?>
                                                
                                                 <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 250px; max-height: 200px">
+                                                    <?php 
+                                                    if(!empty($images_array[0]['file_name'])){ 
+                                                    ?>
                                                     <img src="<?php echo base_url() ?>assets/images/cases/<?php echo $images_array[0]['file_name']; ?>" alt="Default Image">
+                                                    <?php }?>
                                                 </div>
                                                 <div>
                                                     <span class="btn btn-primary btn-sm btn-file">
@@ -184,7 +189,11 @@
                                                         <input type="file" name="case_image[]" accept="image/*">
                                                     </span>
                                                 </div>
+                                                 <?php 
+                                                    if(!empty($images_array[0]['file_name'])){ 
+                                                    ?>
                                                 <input name="case_image_hidden_input[]" type="hidden" value="<?php echo $images_array[0]['file_name']; ?>" />
+                                            <?php }?>
                                             </div>
                                         </div><!-- fileinput-new -->
                                         <?php 
@@ -234,7 +243,7 @@
                     </div>
                     <div class="panel-footer">
                         <button class="btn btn-default" >Clear Form</button>
-                        <button class="btn btn-primary pull-right" type="button" name="" id="submt">Submit</button>
+                        <button class="btn btn-primary pull-right" type="submit" name="submit" id="submt">Submit</button>
                     </div>
                 </div>
             </form>

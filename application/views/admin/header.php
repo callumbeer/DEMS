@@ -37,6 +37,7 @@
                     <li class="xn-icon-button">
                         <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
                     </li>
+                 
                     <!-- END TOGGLE NAVIGATION -->
                     <?php if(!empty($page_name) && $page_name == 'view_cases'){ ?>
                     <!-- SEARCH -->
@@ -50,6 +51,14 @@
                     <!-- SIGN OUT -->
                     <li class="xn-icon-button pull-right">
                         <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>                        
+                    </li>
+                     <?php
+                     $que=$this->db->query("select * from user where id='".$this->session->userdata('id')."'");
+                         $query = $que->row();
+                        //echo $query->first_name;
+                         ?>  
+                    <li class="pull-right">
+                       <p style="color: white;padding: 15px 10px;">Welcome back <?php echo  ucfirst($query->first_name); ?></p>
                     </li> 
                     <!-- END SIGN OUT -->
                     <!-- MESSAGES -->
@@ -96,7 +105,8 @@
                     </li> -->
                     <!-- END MESSAGES -->
                     <!-- TASKS -->
-                    <!-- <li class="xn-icon-button pull-right">
+                    <!-- <li class="xn-icon-button 
+                    -right">
                         <a href="#"><span class="fa fa-tasks"></span></a>
                         <div class="informer informer-warning">3</div>
                         <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">

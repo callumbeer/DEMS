@@ -147,7 +147,7 @@
             <!-- SUCCESS MESSAGE START -->
             <?php 
             if($this->session->flashdata('success')){ ?>
-                ?>               
+       
             <script>
                  var n= noty({text: '<?php echo $this->session->flashdata('success'); ?>', layout: 'topCenter', type: 'success'});
                  n.setTimeout(  3000);

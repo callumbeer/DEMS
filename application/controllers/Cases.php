@@ -32,7 +32,8 @@ class Cases extends CI_Controller {
 		
 		public function addcase()
 		{	
-			$this->form_validation->set_rules('case_no', 'Case No', 'required');
+
+			// $this->form_validation->set_rules('case_no', 'Case No', 'required');
 			$this->form_validation->set_rules('title', 'Title', 'required');
 			$this->form_validation->set_rules('description', 'Description', 'required');
 			$this->form_validation->set_rules('case_type', 'Case Type', 'required');
@@ -46,23 +47,29 @@ class Cases extends CI_Controller {
 	        else
 	        {
 	        
-				$case_id = $name = $data['case_no']	 	= $this->input->post('case_no'); 
+				//$case_id = $name = $data['case_no']	= $this->input->post('case_no'); 
 				$data['title']	 	=	$this->input->post('title');
 				$data['description']	 	= $this->input->post('description');
 				$data['case_type']	 	= $this->input->post('case_type'); 
 				$data['date_created']	 	= $this->input->post('date_created'); 
 				$data['createdBy']	 	= $this->session->userdata('id') != null ? $this->session->userdata('id') : 0; 
-				
+
 				$this->db->insert('case',$data);
+				$case_id = $this->db->insert_id('case',$data);
+
+
 				if(null !=($_FILES['video']['name'])) 
 				{
 					$ext1 =  $_FILES['video']['name'];
 					move_uploaded_file($_FILES['video']['tmp_name'], 'assets/videos/'.str_replace(' ', '-', $name).'-'.$case_id.'.'.$ext1);
-					
+					$algo = 'md5';
 					$vid_data['file_name'] = str_replace(' ', '-', $name).'-'.$case_id.'.'.$ext1;
 					$vid_data['case_no'] = $case_id;
 					$vid_data['file_type'] = 'video';
+				    $vid_data['file_hash'] = hash_file($algo, base_url().'assets/videos/'.$vid_data['file_name']);
+
 					$this->db->insert('file',$vid_data);
+				
 				}
 				
 				if(null !=($_FILES['case_image']['name'])){
@@ -85,8 +92,10 @@ class Cases extends CI_Controller {
 						{
 							$img_data['file_name'] =  'default_icon.png';	
 						}
+						$algo = 'md5';
 						$img_data['case_no'] = $case_id;
 						$img_data['file_type'] = 'image';
+						$img_data['file_hash'] = hash_file($algo, base_url().'assets/images/cases/'.$file_name);
 						$this->db->insert('file',$img_data);
 						$data['file_hash']	=	md5($this->input->post('file_hash'));
 					endforeach;
@@ -99,14 +108,18 @@ class Cases extends CI_Controller {
 
 		public function updatecase($case_id)
 		{	
-			$name = $case_id;
+		   
+		    $name = $case_id;
+           
 			//$this->form_validation->set_rules('case_no', 'Case No', 'required');
 			$this->form_validation->set_rules('title', 'Title', 'required');
 			$this->form_validation->set_rules('description', 'Description', 'required');
 			$this->form_validation->set_rules('case_type', 'Case Type', 'required');
 			$this->form_validation->set_rules('date_created', 'Date Created', 'required');
-			if ($this->form_validation->run() == FALSE)
-            {		
+
+			if($this->form_validation->run() == FALSE)
+            {	
+              
 			    $data['case_id'] = $case_id;
 				$data['page_name'] = 'edit_case';
 				$data['breadcrumb_name'] = 'Case Edit Form';					
@@ -114,7 +127,7 @@ class Cases extends CI_Controller {
 			}
             else
             {
-
+ 				
 				$data['title']	 	=	$this->input->post('title');
 				$data['description']	 	= $this->input->post('description');
 				$data['case_type']	 	= $this->input->post('case_type'); 
@@ -123,9 +136,11 @@ class Cases extends CI_Controller {
 				
 				if(null !=($_FILES['video']['name']))
 				{
+					$algo = 'md5';
 					$ext1 =  $_FILES['video']['name'];
 					move_uploaded_file($_FILES['video']['tmp_name'], 'assets/videos/'.str_replace(' ', '-', $name).'-'.$case_id.'.'.$ext1);
 					$data2['file_name'] = str_replace(' ', '-', $name).'-'.$case_id.'.'.$ext1;
+					$data2['file_hash'] = hash_file($algo, base_url().'assets/videos/'.$data2['file_name']);
 					$this->db->where('case_no',$case_id);
 					$this->db->where('file_type',"video");
 					$this->db->update('file',$data2);
@@ -160,8 +175,10 @@ class Cases extends CI_Controller {
 					{
 						$img_data['file_name'] =  'default_icon.png';	
 					}
+					$algo ='md5';
 					$img_data['case_no'] = $case_id;
 					$img_data['file_type'] = 'image';
+					$img_data['file_hash'] = hash_file($algo, base_url().'assets/images/cases/'.$file_name);
 					$this->db->insert('file',$img_data);
 				endforeach;
 				}
@@ -217,7 +234,7 @@ class Cases extends CI_Controller {
 		}
 
 		public function case_details($id)
-		{			
+		{	
 			if(empty($id))	
 			{
 				show_404();	
