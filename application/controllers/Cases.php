@@ -37,7 +37,6 @@ class Cases extends CI_Controller {
 			$this->form_validation->set_rules('title', 'Title', 'required');
 			$this->form_validation->set_rules('description', 'Description', 'required');
 			$this->form_validation->set_rules('case_type', 'Case Type', 'required');
-			$this->form_validation->set_rules('date_created', 'Date Created', 'required');
 			if ($this->form_validation->run() == FALSE)
 	        {
 				$data['page_name'] = 'add_case';
@@ -50,8 +49,7 @@ class Cases extends CI_Controller {
 				//$case_id = $name = $data['case_no']	= $this->input->post('case_no'); 
 				$data['title']	 	=	$this->input->post('title');
 				$data['description']	 	= $this->input->post('description');
-				$data['case_type']	 	= $this->input->post('case_type'); 
-				$data['date_created']	 	= $this->input->post('date_created'); 
+				$data['case_type']	 	= $this->input->post('case_type');  
 				$data['createdBy']	 	= $this->session->userdata('id') != null ? $this->session->userdata('id') : 0; 
 
 				$this->db->insert('case',$data);
@@ -115,7 +113,6 @@ class Cases extends CI_Controller {
 			$this->form_validation->set_rules('title', 'Title', 'required');
 			$this->form_validation->set_rules('description', 'Description', 'required');
 			$this->form_validation->set_rules('case_type', 'Case Type', 'required');
-			$this->form_validation->set_rules('date_created', 'Date Created', 'required');
 
 			if($this->form_validation->run() == FALSE)
             {	
@@ -131,7 +128,6 @@ class Cases extends CI_Controller {
 				$data['title']	 	=	$this->input->post('title');
 				$data['description']	 	= $this->input->post('description');
 				$data['case_type']	 	= $this->input->post('case_type'); 
-				$data['date_created']	 	= $this->input->post('date_created'); 
 				
 				
 				if(null !=($_FILES['video']['name']))
