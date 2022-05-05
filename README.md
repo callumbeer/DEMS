@@ -15,6 +15,10 @@ Further accounts can be registered and assigned permissions through the admin ac
 
 - CodeIgniter 4.1.9
 
+- Zebra Image 2.6.0
+
+Use of Zebra Image is licensed under a GNU Public License. The Zebra Image Repository can be found [here](https://github.com/stefangabos/Zebra_Image)
+
 Use of the CodeIgniter framework is licensed under the MIT License. The CodeIgniter Repository can be found [here](https://github.com/bcit-ci/CodeIgniter).
 
 ## The MIT License (MIT)
@@ -26,6 +30,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 
 ## Notice
 Files within this repository should not be redistrubted without consent of the Author. 
