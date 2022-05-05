@@ -27,7 +27,7 @@
 					    <div class="col-md-3 col-xs-12 col-sm-6">
 					      <div class="bg-1 bg-01 small-boxs">
 					        <div class="inner">
-					          <p class="desc">Total number of case</p>
+					          <p class="desc">Total number of cases</p>
 					                           <?php 
 					                            $query= $this->db->count_all("case");
 												echo $query;
